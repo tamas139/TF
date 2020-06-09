@@ -2,6 +2,9 @@
 # t2.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
   region = "us-west-2"
+  access_key = "<access-key-from-aws-user>"
+  secret_key = "<secret-key-from-aws-user>"
+	
 }
 
 data "aws_ami" "ubuntu" {
@@ -21,7 +24,7 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = "ami-0dad20bd1b9c8c004"
   instance_type = "t2.micro"
 
   tags = {
